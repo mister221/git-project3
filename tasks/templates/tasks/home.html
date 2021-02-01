@@ -1,0 +1,33 @@
+{% extends 'tasks/base.html' %}
+
+{% block content %}
+
+<div class="container">
+	
+
+
+	<form action="" method="POST">
+
+		{% csrf_token %}
+		{{form.as_p}}
+
+		<input type="submit" name="add" id="" value="Add">
+
+
+	</form>
+
+
+
+	{% for task in tasks %}
+
+	<div>
+		<a href="{% url 'update' task.pk %}">Update</a>
+		<a href="{% url 'delete_entry' task.pk %}">Delete</a>
+		<p>{{task}}</p>
+	</div>
+
+	{% endfor %}
+
+</div>
+
+{% endblock %}
